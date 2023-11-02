@@ -6,7 +6,7 @@ const cors = require("cors")
 const routes = require("./router")
 const app = express();
 app.use(express.json());
-const server = createServer();
+const server = createServer(app);
 const io = new Server(server);
 
 const PORT = process.env.port|4000;
@@ -19,6 +19,9 @@ app.get("/api",(req,res)=>{
     return res.json({
         message:"Welcome to Health Pro Platform"
     })
+})
+io.on('connection',(socket)=>{
+    console.log('A user is connected')
 })
 server.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}`);
