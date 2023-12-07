@@ -22,6 +22,9 @@ app.get("/api",(req,res)=>{
 })
 io.on('connection',(socket)=>{
     console.log('A user is connected')
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+      });
 })
 server.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}`);
