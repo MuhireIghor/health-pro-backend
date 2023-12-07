@@ -24,7 +24,7 @@ const registerRecord = (req, res) => {
                 if (err) return console.log(`An error occured`);
                 response({
                     res,
-                    message: 'user created successfully',
+                    message: 'Record created successfully',
                     isSuccessful: true
                 })
             })
